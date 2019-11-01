@@ -1,0 +1,99 @@
+
+html, body, h1, h2, h3, h4, h5, h6 {
+    font-family: fantasy;
+}
+
+h1 {
+    text-align: center;
+    text-transform: capitalize;
+    text-shadow: 2px 1px dimgrey;
+    font-variant: all-small-caps;
+}
+
+h2 {
+    text-align: center;
+    font-variant: all-small-caps;
+}
+
+input, select {
+    padding: 5px 10px;
+    width: 100%;
+}
+
+input[type=checkbox] {
+    width: auto;
+    margin: 0 0 15px 0;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+button {
+    margin: 0 0 10px 0;
+    padding: 5px;
+}
+
+.Heading {
+    background-color: #b197fc;
+    padding: 40px 0.2%;
+    border: 10px double;
+}
+
+.Below-Headline {
+    text-align: center;
+}
+
+.MainInfos, .CharacterAttribute {
+    background-color: #fcc2d7;
+    padding: 20px 30px 20px 20px;
+    margin: 10px 2px;
+}
+
+.Looks, .SocialStanding {
+    margin: 1%;
+    border-style: dotted;
+    border-width: 2px;
+    background-color: #e599f7;
+    padding: 20px 30px 20px 20px;
+}
+
+.Formular {
+    margin: 5px 0 15px;
+    font-size: 12px;
+    width: 100%;
+}
+
+#Charactername {
+    text-align: center;
+    width: auto;
+}
+
+#AsP-label, #KP-label {
+    margin: 0 0 0 30px;
+    width: 90%;
+}
+
+#Save-Button, #Load-Button, #Reset-Button, #Button-Reset {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+}
+
+@media (min-width: 800px) {
+    body {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .flexContainer {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .Column1, .Column4 {
+        width: 45%;
+    }
+}

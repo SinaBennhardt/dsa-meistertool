@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Heldendokument</title>
+    <meta charset="utf-8"> <!-- damit Umlaute angezeigt werden -->
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+
+<body>
+
+<form id="Form">
+
+    <div class="Heading">
+        <h1>Heldendokument</h1>
+
+        <div class="Below-Headline">
+            <input data-save="true" type="text" id="Charactername" placeholder="Charaktername" class="Formular">
+        </div>
+    </div>
+
+    <div class="flexContainer">
+
+        <div class="MainInfos Column1">
+            <h2>Basisinformationen</h2>
+
+            <label for="Race">Rasse: </label> <br>
+            <input data-save="true" type="text" id="Race" class="Formular">
+
+            <label for="Culture">Kultur: </label> <br>
+            <input data-save="true" type="text" id="Culture" class="Formular">
+
+            <label for="Profession">Profession: </label><br>
+            <input data-save="true" type="text" id="Profession" class="Formular">
+
+            <div class="Looks Column2">
+                <h2>Aussehen</h2>
+
+                <label for="Sex">Geschlecht:</label> <br>
+                <select data-save="true" id="Sex" class="Formular">
+                    <option value="empty"></option>
+                    <option value="male">Männlich</option>
+                    <option value="female">Weiblich</option>
+                    <option value="Other">Sonstige</option>
+                </select>
+
+
+                <div class="Birthday">
+                    <label for="Day">Geburtstag:</label> <br>
+                    <input data-save="true" type="number" id="Day" class="Formular" placeholder="Tag" min="1" max="30">
+
+                    <label for="Month">Geburtsmonat:</label> <br>
+                    <select data-save="true" id="Month" class="Formular">
+                        <option value="empty"></option>
+                        <option value="Praios">Praios</option>
+                        <option value="Rondra">Rondra</option>
+                        <option value="Efferd">Efferd</option>
+                        <option value="Travia">Travia</option>
+                        <option value="Boron">Boron</option>
+                        <option value="Hesinde">Hesinde</option>
+                        <option value="Firun">Firun</option>
+                        <option value="Tsa">Tsa</option>
+                        <option value="Phex">Phex</option>
+                        <option value="Peraine">Peraine</option>
+                        <option value="Ingerimm">Ingerimm</option>
+                        <option value="Rahja">Rahja</option>
+                        <option value="Namenloser">Namenloser</option>
+                    </select>
+                    <br>
+                    <button type="button" id="Randomize" onclick="RandomBirthday()">Zufälliger Geburtstag</button>
+                    <br>
+
+                </div>
+
+                <label for="Age">Alter: </label> <br>
+                <input data-save="true" type="number" id="Age" class="Formular" placeholder="Alter in Jahren" min="14">
+
+                <label for="Weight">Gewicht: </label> <br>
+                <input data-save="true" type="number" id="Weight" placeholder="Gewicht in Stein" class="Formular" min="0">
+
+                <label for="HairColor">Haarfarbe: </label> <br>
+                <input data-save="true" type="text" id="HairColor" class="Formular">
+
+                <label for="EyeColor">Augenfarbe: </label> <br>
+                <input data-save="true" type="text" id="EyeColor" class="Formular">
+            </div>
+            <div class="SocialStanding Column3">
+                <h2>Soziale Klasse</h2>
+
+                <label for="Title">Titel: </label> <br>
+                <input data-save="true" type="text" id="Title" class="Formular"> <br>
+
+                <label for="SocialStatus">Sozialstatus: </label> <br>
+                <input data-save="true" type="number" id="SocialStatus" class="Formular" placeholder="z.B.: 5" min="0" max="20"> <br>
+
+            </div>
+
+        </div>
+
+        <div class="CharacterAttribute Column4">
+
+            <div>
+                <h2>Eigenschaften</h2>
+
+                <label for="MU">Mut: </label> <br>
+                <input data-save="true" type="number" id="MU" class="Formular" min="0" onchange="update()">
+
+                <label for="KL">Klugheit: </label> <br>
+                <input data-save="true" type="number" id="KL" class="Formular" min="0" onchange="update()">
+
+                <label for="IN">Intuition: </label> <br>
+                <input data-save="true" type="number" id="IN" class="Formular" min="0" onchange="update()">
+
+                <label for="CH">Charisma: </label> <br>
+                <input data-save="true" onchange="update(event)" type="number" id="CH" class="Formular" min="0">
+
+                <label for="FF">Fingerfertigkeit: </label> <br>
+                <input data-save="true" type="number" id="FF" class="Formular" min="0" onchange="update()">
+
+                <label for="GE">Gewandtheit: </label> <br>
+                <input data-save="true" type="number" id="GE" class="Formular" min="0" onchange="update()">
+
+                <label for="KO">Konstitution: </label> <br>
+                <input data-save="true" type="number" id="KO" class="Formular" min="0" onchange="update()">
+
+                <label for="KK">Körperkraft: </label> <br>
+                <input data-save="true" type="number" id="KK" class="Formular" min="0" onchange="update()">
+
+            </div>
+            <div class="Column5 Basiswerte">
+                <h2> Basiswerte</h2>
+
+                <label for="LeP">Lebenspunkte: </label> <br>
+                <input type="number" id="LeP" class="Formular" readonly disabled>
+
+                <label for="AusD">Ausdauer: </label> <br>
+                <input type="number" id="AusD" class="Formular" readonly disabled>
+
+                <input type="checkbox" id="IfMagic" onclick="DisplayAsP()">
+                <label for="IfMagic">Astralpunkte anzeigen</label>
+
+                <div id="AsP-label" style="display:none">
+                    <label for="AsP">Astralpunkte: </label> <br>
+                    <input type="number" id="AsP" class="Formular Checkbox AsP" readonly disabled> <br>
+                </div>
+
+                <input type="checkbox" id="IfHoly" onclick="DisplayKP()">
+                <label id="KP-checkbox-label" for="IfHoly">Karmalpunkte anzeigen</label>
+
+                <div id="KP-label" style="display:none">
+                    <label class="KP" for="KP">Karmalpunkte: </label>
+                    <select id="KP" class="Formular Checkbox KP">
+                        <option value="empty"></option>
+                        <option value="Halbgott">12</option>
+                        <option value="Gott">24</option>
+                    </select>
+
+                </div>
+
+                <br>
+                <label for="MR">Magieresistenz: </label> <br>
+                <input type="number" id="MR" class="Formular" readonly disabled>
+
+                <label for="INI-Basis">INI-Basiswert: </label> <br>
+                <input type="number" id="INI-Basis" class="Formular" readonly disabled>
+
+                <label for="AT">AT-Basiswert: </label> <br>
+                <input type="number" id="AT" class="Formular" readonly disabled>
+
+                <label for="PA">PA-Basiswert: </label> <br>
+                <input type="number" id="PA" class="Formular" readonly disabled>
+
+                <label for="FK">FK-Basiswert: </label> <br>
+                <input type="number" id="FK" class="Formular" readonly disabled>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="Footer">
+        <button type="button" id="Save-Button" onclick="SaveContent()">Speichern</button>
+        <button type="button" id="Load-Button" onclick="LoadContent()">Alten Inhalt laden</button>
+        <button type="reset" id="Button-Reset">Dokument leeren</button>
+        <button type="button" id="Reset-Button" onclick="ClearLocalStorage()">Gespeicherten Inhalt löschen</button>
+    </div>
+
+</form>
+
+<script src="script.js"></script>
+
+</body>
