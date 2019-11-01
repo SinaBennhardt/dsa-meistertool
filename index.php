@@ -184,7 +184,7 @@ if (!isset($_GET['page']) || !$_GET['page']) {
     echo $view->render('view_content', [
         'view_content' => $view_content,
         'content' => $content ?? null,
-    ]);;
+    ]);
 
 } elseif ($_GET['page'] === 'update_content') {
     $content_id = ($_GET['id']);
